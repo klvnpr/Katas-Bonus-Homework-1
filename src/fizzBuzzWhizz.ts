@@ -44,3 +44,10 @@ export const game = (input: number) => {
   return result || input;
 };
 
+export const gameUpTo = (n: number): (string | number)[] => {
+  if (!Number.isInteger(n) || n < 1) {
+    throw new Error("n must be a natural number greater than zero");
+  }
+  return Array.from({ length: n }, (_, i) => game(i + 1));
+};
+
